@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Rev";
+    src: url("/assets/font/Revamped.otf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #7909BB;
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    font-family: 'Rev';
+    color: #FFFD00;
+    font-size: 70px;
+}
