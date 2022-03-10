@@ -6,6 +6,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/img/email.png">
     <title>e-mails</title>
@@ -15,21 +18,41 @@
     <section id="app">
         <h1 class="title">Get e-mails</h1>
 
-        <div>
-            <p>Quante e-mail vuoi generare?</p>
-            <input type="number" v-model="numberEmail" min="1" max="20" placeholder="1-20">
-            <button @click="getEmail">OK</button>
-        </div>
+        <div class="email-wrapper"> 
+            <div class="container">
+
+                <!-- question -->                
+                <div v-if="startEmail" class="email-question" :class="divAlert ? 'd-none' : ''">
+                    <p>Quante e-mail vorresti generare?</p>
+                    <input class="input-style" type="number" v-model="numberEmail" min="1" max="20" placeholder="1-20">
+                    <button class="btn-style" @click="getEmail">GENERA</button>
+                </div>
 
 
-
-
-        <div v-if="emails.length == numberEmail">
-            {{emails}}
-
+                <div v-else>                    
+                    <!-- download -->
+                    <div class="download" :class="emails.length == numberEmail ? 'd-none' : ''">
+                        <p>Caricamento...</p>
+                    </div>
+                    
+                    <!-- list emails -->
+                    <div class="email-list" :class="emails.length == numberEmail ? '' : 'd-none'">
+                        <ol>
+                            <li v-for="email in emails">{{ email }}</li>
+                        </ol>
+                        <button class="btn-style" @click="restart">RESTART</button>
+                    </div>
+                </div>
+                    
+                    <!-- alert -->
+                <div class="email-alert" :class="divAlert ? '' : 'd-none'">
+                    <p>Hai inserito un valore non corretto!</p>
+                    <button class="btn-style" @click="divAlert = false">OK</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <script src="assets/js/app.js"></script>    
 </body>
-</html>
+</html>f

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Rev";
-    src: url("/assets/font/Revamped.otf");
+    src: url("../font/Revamped.otf");
 }
 
 *{
@@ -11,12 +11,121 @@
 
 body{
     background-color: #7909BB;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#app{
+    padding: 10px;
+    height: 95vh;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title{
+    padding: 20px;
     font-family: 'Rev';
     color: #FFFD00;
     font-size: 70px;
+    user-select: none;
+}
+
+.title::after{
+    content: '';
+    height: 1px;
+    width: 100%;
+    display: block;
+    background-color: #FFFD00;
+}
+
+.email-wrapper{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #02A0AF;
+    width: 500px;
+    box-shadow: 0px 0px 50px 1px #FF7800;
+    animation: ani-shadow 1500ms linear infinite;
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+    transition: all 350ms ease-in-out;
+}
+
+.email-question, .email-alert, .email-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.email-list ol li{
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 350ms ease-in-out;
+    color: white;
+}
+
+.email-list ol li:hover{
+    transform: scale(1.2);
+}
+
+
+.input-style{
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.btn-style{
+    font-family: 'Rev';
+    border: none;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 18px;
+    background-color: #7909BB;
+    color: #FFFD00;
+    transition: all 350ms ease-in-out;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-style:hover{
+    background-color: #FFFD00;
+    color: #7909BB;
+}
+
+@keyframes ani-shadow{
+    0%{
+        box-shadow: 0px 0px 50px 0px #FF7800;
+    }
+    50%{
+        box-shadow: 0px 0px 50px 15px #FF7800;
+    }
+    100%{
+        box-shadow: 0px 0px 50px 0px #FF7800;
+    }
+}
+
+@media screen and (max-width: 540px){
+    .container{
+        width: 100%;
+    }
+
+    ol{
+        list-style: none
+    }
+
+}
+
+.d-none{
+    display: none;
 }
