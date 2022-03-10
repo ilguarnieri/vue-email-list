@@ -75,7 +75,7 @@ body{
 }
 
 .email-list ol li:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 
@@ -123,7 +123,6 @@ body{
     ol{
         list-style: none
     }
-
 }
 
 .d-none{
